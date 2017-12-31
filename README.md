@@ -102,7 +102,7 @@ Create a .env file and put the configurations values
 cp local.env .env
 ```
 
-Export the evironments variables
+Export the environment variables
 ```
 set -a; source .env
 ```
