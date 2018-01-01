@@ -66,7 +66,6 @@ Computers / Desktop
 :
 ```
 
-
 ## Project Requirements
 
 The project must implement the following features:
@@ -96,6 +95,35 @@ $ python manage.py importcategories walmart categories.txt
 
 
 ## Development
+
+### Database
+The deploy in Heroku will use postgresql as default database,
+that is why on development and test the postgres was the choices.
+
+You can [install](https://www.postgresql.org/download/) 
+or use [docker](https://www.docker.com/get-docker)
+and [docker-compose](https://docs.docker.com/compose/install/)
+
+This is a docker-compose.yml example:
+```
+version: '3'
+services:
+  postgres:
+    image: postgres:9.6.5-alpine
+    ports:
+     - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=olist
+      - POSTGRES_USER=olist
+      - POSTGRES_DB=olist
+```
+
+Run docker
+```
+docker-compose up -d
+```
+
+### Create Environment
 
 Create a .env file and put the configurations values
 ```
