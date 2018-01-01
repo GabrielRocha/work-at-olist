@@ -3,3 +3,4 @@
 django-extensions
 pytest
 pytest-django
+pytest-cov
