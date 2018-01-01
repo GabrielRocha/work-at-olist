@@ -12,12 +12,11 @@ def test_field_slug_is_slugfield():
 
 
 @pytest.mark.django_db
-def test_create_channel(channel):
-    channel.save()
+@pytest.mark.usefixtures('channel')
+def test_create_channel():
     assert Channel.objects.filter(name='Walmart').count() == 1
 
 
 @pytest.mark.django_db
 def test_slug_channel(channel):
-    channel.save()
-    assert Channel.objects.get(name='Walmart').slug == "walmart"
+    assert channel.slug == "walmart"
