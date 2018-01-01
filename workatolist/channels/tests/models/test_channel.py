@@ -3,11 +3,6 @@ from channels.models import Channel
 from django.db import models
 
 
-@pytest.fixture
-def channel():
-    return Channel(name="Walmart")
-
-
 def test_field_name_is_charfield():
     assert isinstance(Channel._meta.get_field('name'), models.CharField)
 
