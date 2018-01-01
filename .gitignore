@@ -9,3 +9,4 @@
 tmp
 .olist
 .coverage
+.cache
