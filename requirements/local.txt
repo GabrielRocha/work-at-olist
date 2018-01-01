@@ -1,6 +1,5 @@
 -r production.txt
 
-django-extensions
 pytest
 pytest-django
 pytest-cov
