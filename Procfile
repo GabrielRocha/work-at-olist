@@ -1,1 +1,1 @@
-web: cd work-at-olist && gunicorn --pythonpath workatolist.wsgi --log-file -
+web: cd work-at-olist && gunicorn workatolist.wsgi --log-file -
