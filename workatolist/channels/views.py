@@ -6,7 +6,13 @@ from channels.serializer import ChannelListSerializer, ChannelDetailSerializer, 
 
 
 class ChannelView(viewsets.ViewSet):
-    """ List all channels """
+    """
+    list:
+    Return a list of all the existing channels.
+
+    retrieve:
+    Return the existing channel.
+    """
     lookup_field = 'slug'
 
     def list(self, request, *args):
@@ -22,7 +28,10 @@ class ChannelView(viewsets.ViewSet):
 
 
 class CategoryView(viewsets.ViewSet):
-    """ Detail category """
+    """
+    retrieve:
+    Return the existing category and subcategories.
+    """
 
     lookup_field = 'slug'
 

@@ -5,3 +5,4 @@ dj-database-url
 djangorestframework
 django-mptt
 djangorestframework-recursive
+coreapi
