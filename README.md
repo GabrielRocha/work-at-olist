@@ -96,6 +96,13 @@ $ python manage.py importcategories walmart categories.txt
 
 ## Development
 
+### Site
+https://olistgabrielrocha.herokuapp.com/
+
+### Documentation
+
+https://olistgabrielrocha.herokuapp.com/v1/docs/
+
 ### Database
 The deploy in Heroku will use postgresql as default database,
 that is why on development and test the postgres was the choices.

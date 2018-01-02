@@ -1,0 +1,1 @@
+web: python manage.py collectstatic --noinput && gunicorn workatolist.wsgi --log-file -
