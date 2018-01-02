@@ -1,0 +1,7 @@
+[report]
+omit =
+    *__init__*
+    *wsgi.py
+    */tests/*
+    *apps.py
+    manage.py
