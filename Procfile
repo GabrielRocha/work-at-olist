@@ -1,1 +1,1 @@
-web:cd work-at-olist/workatolist && python ../manage.py collectstatic --noinput && gunicorn workatolist.wsgi --log-file -
+web:cd workatolist && gunicorn workatolist.wsgi --log-file -
