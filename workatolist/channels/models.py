@@ -15,7 +15,7 @@ class Channel(models.Model):
 class Category(MPTTModel):
     channel = models.ForeignKey(Channel, related_name='categories')
     name = models.CharField(max_length=50)
-    slug = models.SlugField()
+    slug = models.SlugField(unique=True, max_length=255)
     parent = TreeForeignKey('self', null=True, blank=True,
                             related_name='subcategories', db_index=True)
 
