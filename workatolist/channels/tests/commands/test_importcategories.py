@@ -33,8 +33,8 @@ def test_handle_command(command):
 @pytest.mark.django_db
 def test_importer_save_categories(channel):
     args = ['Computers',
-              ['Computers\n', 'Computers / Notebooks\n'],
-              channel]
+            ['Computers\n', 'Computers / Notebooks\n'],
+            channel]
     importcategories.save_categories(*args)
     assert Category.objects.filter(name="Computers").exists()
     parent = Category.objects.get(name="Computers")

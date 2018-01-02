@@ -40,7 +40,7 @@ def test_channels_three_levels_categories(channel, category):
     second_level_category = Category.objects.create(channel=channel,
                                                     name="Comedy", parent=category)
     third_level_category = Category.objects.create(channel=channel,
-                                                    name="Studio", parent=second_level_category)
+                                                   name="Studio", parent=second_level_category)
     assert third_level_category in channel.categories.first().get_descendants()
 
 
