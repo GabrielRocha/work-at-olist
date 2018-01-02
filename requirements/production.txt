@@ -6,3 +6,4 @@ djangorestframework
 django-mptt
 djangorestframework-recursive
 coreapi
+pathos
