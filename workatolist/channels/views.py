@@ -1,8 +1,8 @@
 from rest_framework.response import Response
 from rest_framework import viewsets
 from django.shortcuts import get_object_or_404
-from channels.models import Channel
-from channels.serializer import ChannelListSerializer, ChannelDetailSerializer
+from channels.models import Channel, Category
+from channels.serializer import ChannelListSerializer, ChannelDetailSerializer, CategorySerializer
 
 
 class ChannelView(viewsets.ViewSet):
@@ -17,5 +17,16 @@ class ChannelView(viewsets.ViewSet):
 
     def retrieve(self, request, slug=None):
         channels = get_object_or_404(Channel, slug=slug)
-        serializer = ChannelDetailSerializer(channels)
+        serializer = ChannelDetailSerializer(channels, context={'request': request})
+        return Response(serializer.data)
+
+
+class CategoryView(viewsets.ViewSet):
+    """ Detail category """
+
+    lookup_field = 'slug'
+
+    def retrieve(self, request, slug=None):
+        category = get_object_or_404(Category, slug=slug)
+        serializer = CategorySerializer(category, context={'request': request})
         return Response(serializer.data)
