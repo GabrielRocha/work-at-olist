@@ -23,3 +23,8 @@ def test_create_second_level_category_foreign_key(category, channel):
 def test_create_second_level_category_slug(category, channel):
     second_level_category = Category.objects.create(channel=channel, name="Comedy", parent=category)
     assert second_level_category.slug == 'walmart-books-comedy'
+
+
+@pytest.mark.django_db
+def test_str_category(category):
+    assert str(category) == 'walmart-books'

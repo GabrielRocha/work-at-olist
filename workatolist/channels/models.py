@@ -11,6 +11,9 @@ class Channel(models.Model):
         self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
+    def __str__(self):
+        return self.slug
+
 
 class Category(MPTTModel):
     channel = models.ForeignKey(Channel, related_name='categories')
@@ -25,3 +28,6 @@ class Category(MPTTModel):
             slug_name = f'{self.parent.slug} {self.name}'
         self.slug = slugify(slug_name)
         super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.slug

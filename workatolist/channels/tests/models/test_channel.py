@@ -42,3 +42,8 @@ def test_channels_three_levels_categories(channel, category):
     third_level_category = Category.objects.create(channel=channel,
                                                     name="Studio", parent=second_level_category)
     assert third_level_category in channel.categories.first().get_descendants()
+
+
+@pytest.mark.django_db
+def test_str_channel(channel):
+    assert str(channel) == 'walmart'
