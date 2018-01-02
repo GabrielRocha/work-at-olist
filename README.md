@@ -147,6 +147,11 @@ Install all dependencies
 pip install -r requirements/local.txt
 ```
 
+Run Tests
+```
+pytest --cov-report term-missing --cov . -W ignore
+```
+
 Run local server
 ```
 python manage.py migrate
