@@ -1,5 +1,86 @@
 # Work at Olist
 
+## Development
+
+### Site
+https://olistgabrielrocha.herokuapp.com/v1/
+
+### Documentation
+
+https://olistgabrielrocha.herokuapp.com/v1/docs/
+
+### Database
+The deploy in Heroku will use postgresql as default database,
+that is why on development and test the postgres was the choices.
+
+You can [install](https://www.postgresql.org/download/) 
+or use [docker](https://www.docker.com/get-docker)
+and [docker-compose](https://docs.docker.com/compose/install/)
+
+This is a docker-compose.yml example:
+```
+version: '3'
+services:
+  postgres:
+    image: postgres:9.6.5-alpine
+    ports:
+     - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=olist
+      - POSTGRES_USER=olist
+      - POSTGRES_DB=olist
+```
+
+Run docker
+```
+docker-compose up -d
+```
+
+### Create Environment
+
+Create a .env file and put the configurations values
+```
+cp local.env .env
+```
+
+Export the environment variables
+```
+set -a; source .env
+```
+
+Create the [virtualenv](https://virtualenv.pypa.io/en/stable/).
+Python 3.5+ already has the library
+```
+python -m venv .olist
+source .olist/bin/activate
+```
+
+Install all dependencies
+```
+pip install -r requirements/local.txt
+```
+
+Run Tests
+```
+pytest --cov-report term-missing --cov . -W ignore
+```
+
+Run local server
+```
+python manage.py migrate
+python manage.py runserver
+```
+
+## Tech
+ * Pycharm
+ * Macos El Capitan 10.11.6
+ * Pytest
+ * Django
+ * Django Rest Framework
+ * Iterm
+ * Sublime
+
+
 ## Specification
 
 As we already said, Olist is a company that provides a platform to integrate
@@ -92,75 +173,3 @@ $ python manage.py importcategories walmart categories.txt
   - List existing channels.
   - List all categories and subcategories of a channel.
   - Return a single category with their parent categories and subcategories.
-
-
-## Development
-
-### Site
-https://olistgabrielrocha.herokuapp.com/
-
-### Documentation
-
-https://olistgabrielrocha.herokuapp.com/v1/docs/
-
-### Database
-The deploy in Heroku will use postgresql as default database,
-that is why on development and test the postgres was the choices.
-
-You can [install](https://www.postgresql.org/download/) 
-or use [docker](https://www.docker.com/get-docker)
-and [docker-compose](https://docs.docker.com/compose/install/)
-
-This is a docker-compose.yml example:
-```
-version: '3'
-services:
-  postgres:
-    image: postgres:9.6.5-alpine
-    ports:
-     - "5432:5432"
-    environment:
-      - POSTGRES_PASSWORD=olist
-      - POSTGRES_USER=olist
-      - POSTGRES_DB=olist
-```
-
-Run docker
-```
-docker-compose up -d
-```
-
-### Create Environment
-
-Create a .env file and put the configurations values
-```
-cp local.env .env
-```
-
-Export the environment variables
-```
-set -a; source .env
-```
-
-Create the [virtualenv](https://virtualenv.pypa.io/en/stable/).
-Python 3.5+ already has the library
-```
-python -m venv .olist
-source .olist/bin/activate
-```
-
-Install all dependencies
-```
-pip install -r requirements/local.txt
-```
-
-Run Tests
-```
-pytest --cov-report term-missing --cov . -W ignore
-```
-
-Run local server
-```
-python manage.py migrate
-python manage.py runserver
-```
