@@ -1,1 +1,1 @@
-web: cd work-at-olist && python manage.py migrate && python manage.py collectstatic --noinput && gunicorn workatolist.wsgi --log-file -
+web: cd work-at-olist && python manage.py migrate && gunicorn workatolist.wsgi --log-file -
